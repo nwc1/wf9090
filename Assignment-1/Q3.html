@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            width: 400px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #error-message {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form onsubmit="return validateForm()">
+        <h2>Login Form</h2>
+
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+
+	<label for="password">Password:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+
+            var emailRegex = /^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
+	    var nameRegex = /^[A-Z]+[a-zA-Z0-1]+$/;
+
+
+
+            if (!nameRegex.test(lastName)) {
+                displayError('Password is not valid.');
+                return false;
+            }
+
+            if (!emailRegex.test(email)) {
+                displayError('Email is not valid. Please enter a valid email address.');
+                return false;
+            }
+	    document.write("Logged In Sucessfully");
+            return true;
+	    
+        }
+
+        function displayError(message) {
+	    alert(message);
+             // Show error in an alert
+        }
+    </script>
+
+</body>
+
+</html>
+
